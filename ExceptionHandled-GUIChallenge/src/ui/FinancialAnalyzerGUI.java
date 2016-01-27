@@ -39,8 +39,14 @@ public class FinancialAnalyzerGUI extends javax.swing.JFrame {
         loanAmountText = new javax.swing.JTextField();
         apr = new javax.swing.JLabel();
         aprText = new javax.swing.JTextField();
+        Compounding = new javax.swing.JLabel();
+        compoundingComboBox = new javax.swing.JComboBox<>();
         jLabel2 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        loanDuration = new javax.swing.JTextField();
+        calculateButton = new javax.swing.JButton();
+        clearButton = new javax.swing.JButton();
+        summaryReportButton = new javax.swing.JButton();
+        exitButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -48,7 +54,7 @@ public class FinancialAnalyzerGUI extends javax.swing.JFrame {
         loanPaymentRadio.setText("Loan Payment ");
 
         radioButtons.add(investmentValueRadio);
-        investmentValueRadio.setText("jRadioButton2");
+        investmentValueRadio.setText("Investment Value");
         investmentValueRadio.setActionCommand("Investment Value ");
 
         titleCalculator.setText("Loan Payment Calculator");
@@ -63,9 +69,19 @@ public class FinancialAnalyzerGUI extends javax.swing.JFrame {
 
         aprText.setText("jTextField1");
 
-        jLabel2.setText("Compounding ");
+        Compounding.setText("Compounding ");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        compoundingComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jLabel2.setText("Loan Duration (years) ");
+
+        calculateButton.setText("Calculate");
+
+        clearButton.setText("Clear");
+
+        summaryReportButton.setText("Summary Report");
+
+        exitButton.setText("Exit");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -79,9 +95,24 @@ public class FinancialAnalyzerGUI extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
+                        .addComponent(clearButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(exitButton))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(calculateButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(summaryReportButton))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(loanDuration, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(Compounding)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(compoundingComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(apr)
@@ -105,7 +136,7 @@ public class FinancialAnalyzerGUI extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(49, 49, 49)
                         .addComponent(loanPaymentRadio)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
                         .addComponent(investmentValueRadio)))
                 .addGap(59, 59, 59))
         );
@@ -137,9 +168,21 @@ public class FinancialAnalyzerGUI extends javax.swing.JFrame {
                     .addComponent(aprText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Compounding)
+                    .addComponent(compoundingComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(32, 32, 32)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(190, Short.MAX_VALUE))
+                    .addComponent(loanDuration, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(34, 34, 34)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(calculateButton)
+                    .addComponent(summaryReportButton))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(clearButton)
+                    .addComponent(exitButton))
+                .addContainerGap(34, Short.MAX_VALUE))
         );
 
         loanPaymentRadio.getAccessibleContext().setAccessibleName("loanPaymentRadio");
@@ -185,19 +228,25 @@ public class FinancialAnalyzerGUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Compounding;
     private javax.swing.JLabel apr;
     private javax.swing.JTextField aprText;
+    private javax.swing.JButton calculateButton;
+    private javax.swing.JButton clearButton;
+    private javax.swing.JComboBox<String> compoundingComboBox;
     private javax.swing.JCheckBox downPayment;
     private javax.swing.JTextField downPaymentText;
+    private javax.swing.JButton exitButton;
     private javax.swing.JRadioButton investmentValueRadio;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel loanAmount;
     private javax.swing.JTextField loanAmountText;
+    private javax.swing.JTextField loanDuration;
     private javax.swing.JRadioButton loanPaymentRadio;
     private javax.swing.JTextField purchaseAmountText;
     private javax.swing.ButtonGroup radioButtons;
+    private javax.swing.JButton summaryReportButton;
     private javax.swing.JLabel titleCalculator;
     // End of variables declaration//GEN-END:variables
 }
