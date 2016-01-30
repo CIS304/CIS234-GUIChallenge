@@ -228,11 +228,16 @@ public class FinancialAnalyzerGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_summaryReportButtonClick
 
     private void clearButtonClick(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearButtonClick
-        // TODO add your handling code here:
+        purchaseAmountText.setText("");
+        downPaymentText.setText("");
+        loanAmountText.setText("");
+        aprText.setText("");
+        loanDurationText.setText("");
+        monthlyPaymentText.setText("");
     }//GEN-LAST:event_clearButtonClick
 
     private void exitButtonActionClick(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitButtonActionClick
-        // TODO add your handling code here:
+        System.exit(0);
     }//GEN-LAST:event_exitButtonActionClick
 
     /**
