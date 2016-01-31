@@ -5,6 +5,8 @@
  */
 package ui;
 
+import javax.swing.Icon;
+
 /**
  *
  * @author kevin
@@ -27,7 +29,7 @@ public class FinancialAnalyzerGUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        radioButtons = new javax.swing.ButtonGroup();
+        buttonGroup = new javax.swing.ButtonGroup();
         loanPaymentRadio = new javax.swing.JRadioButton();
         investmentValueRadio = new javax.swing.JRadioButton();
         titleCalculator = new javax.swing.JLabel();
@@ -52,13 +54,24 @@ public class FinancialAnalyzerGUI extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        radioButtons.add(loanPaymentRadio);
+        buttonGroup.add(loanPaymentRadio);
         loanPaymentRadio.setText("Loan Payment ");
+        loanPaymentRadio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                loanPaymentRadioActionPerformed(evt);
+            }
+        });
 
-        radioButtons.add(investmentValueRadio);
+        buttonGroup.add(investmentValueRadio);
         investmentValueRadio.setText("Investment Value");
         investmentValueRadio.setActionCommand("Investment Value ");
+        investmentValueRadio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                investmentValueRadioActionPerformed(evt);
+            }
+        });
 
+        titleCalculator.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         titleCalculator.setText("Loan Payment Calculator");
 
         jLabel1.setText("Purchase Amount ");
@@ -103,6 +116,7 @@ public class FinancialAnalyzerGUI extends javax.swing.JFrame {
             }
         });
 
+        monthlyPayment.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         monthlyPayment.setText("Monthly Payment");
 
         monthlyPaymentText.setToolTipText("");
@@ -126,7 +140,7 @@ public class FinancialAnalyzerGUI extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(49, 49, 49)
                         .addComponent(loanPaymentRadio)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(investmentValueRadio))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
@@ -160,7 +174,7 @@ public class FinancialAnalyzerGUI extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(monthlyPayment)))
                 .addGap(11, 11, 11)
-                .addComponent(monthlyPaymentText)
+                .addComponent(monthlyPaymentText, javax.swing.GroupLayout.DEFAULT_SIZE, 29, Short.MAX_VALUE)
                 .addGap(56, 56, 56))
         );
         layout.setVerticalGroup(
@@ -209,7 +223,7 @@ public class FinancialAnalyzerGUI extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(clearButton)
                     .addComponent(exitButton))
-                .addContainerGap(31, Short.MAX_VALUE))
+                .addContainerGap(28, Short.MAX_VALUE))
         );
 
         loanPaymentRadio.getAccessibleContext().setAccessibleName("loanPaymentRadio");
@@ -228,17 +242,40 @@ public class FinancialAnalyzerGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_summaryReportButtonClick
 
     private void clearButtonClick(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearButtonClick
+        
+        buttonGroup.clearSelection(); //Clears selected radio button
         purchaseAmountText.setText("");
         downPaymentText.setText("");
+        downPayment.setSelected(false); //Clears the check box
         loanAmountText.setText("");
-        aprText.setText("");
+        aprText.setText(""); 
+        compoundingComboBox.setSelectedIndex(0); //Resets compounding option
         loanDurationText.setText("");
         monthlyPaymentText.setText("");
+        
+        
+
     }//GEN-LAST:event_clearButtonClick
 
     private void exitButtonActionClick(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitButtonActionClick
         System.exit(0);
     }//GEN-LAST:event_exitButtonActionClick
+
+    private void investmentValueRadioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_investmentValueRadioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_investmentValueRadioActionPerformed
+
+    private void loanPaymentRadioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loanPaymentRadioActionPerformed
+       
+//        //code for which radio button is selected
+//        String jrbutton = "";
+//        if (loanPaymentRadio.isSelected())
+//            jrbutton = "Loan Payment";
+//        else if (investmentValueRadio.isSelected());
+//            jrbutton = "Investment Value";
+            
+                
+    }//GEN-LAST:event_loanPaymentRadioActionPerformed
 
     /**
      * @param args the command line arguments
@@ -279,6 +316,7 @@ public class FinancialAnalyzerGUI extends javax.swing.JFrame {
     private javax.swing.JLabel Compounding;
     private javax.swing.JLabel apr;
     private javax.swing.JTextField aprText;
+    private javax.swing.ButtonGroup buttonGroup;
     private javax.swing.JButton calculateButton;
     private javax.swing.JButton clearButton;
     private javax.swing.JComboBox<String> compoundingComboBox;
@@ -295,7 +333,6 @@ public class FinancialAnalyzerGUI extends javax.swing.JFrame {
     private javax.swing.JLabel monthlyPayment;
     private javax.swing.JTextField monthlyPaymentText;
     private javax.swing.JTextField purchaseAmountText;
-    private javax.swing.ButtonGroup radioButtons;
     private javax.swing.JButton summaryReportButton;
     private javax.swing.JLabel titleCalculator;
     // End of variables declaration//GEN-END:variables
