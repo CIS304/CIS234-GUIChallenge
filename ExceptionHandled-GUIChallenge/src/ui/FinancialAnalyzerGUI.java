@@ -58,6 +58,11 @@ public class FinancialAnalyzerGUI extends javax.swing.JFrame {
         radioButtons.add(loanPaymentRadio);
         loanPaymentRadio.setSelected(true);
         loanPaymentRadio.setText("Loan Payment ");
+        loanPaymentRadio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                loanPaymentRadioActionPerformed(evt);
+            }
+        });
 
         radioButtons.add(investmentValueRadio);
         investmentValueRadio.setText("Investment Value");
@@ -81,6 +86,11 @@ public class FinancialAnalyzerGUI extends javax.swing.JFrame {
         compundingTextLabel.setText("Compounding ");
 
         compoundingComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Annually", "Semiannual", "Quarterly", "Monthly", "Weekly" }));
+        compoundingComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                compoundingComboBoxActionPerformed(evt);
+            }
+        });
 
         textLabel6.setText("Loan Duration (years) ");
 
@@ -266,16 +276,23 @@ public class FinancialAnalyzerGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_investmentValueRadioActionPerformed
 
     private void loanPaymentRadioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loanPaymentRadioActionPerformed
-       
-//        //code for which radio button is selected
-//        String jrbutton = "";
-//        if (loanPaymentRadio.isSelected())
-//            jrbutton = "Loan Payment";
-//        else if (investmentValueRadio.isSelected());
-//            jrbutton = "Investment Value";
+        
+        textLabel1.setText("Purchase Amount");
+        textLabel2.setText("Down Payment");
+        textLabel3.setText("Loan Payment");
+        textLabel6.setText("Loan Duration (years)");
+        textLabel7.setText("Monthly Payment");
             
                 
     }//GEN-LAST:event_loanPaymentRadioActionPerformed
+
+    private void compoundingComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_compoundingComboBoxActionPerformed
+        CompoundingOption oldValue = compoundingOption;
+        compoundingOption = getSelectedCompounding();
+        compoundingText = (String) compoundingCBox.getSelectedItem();
+        
+        
+    }//GEN-LAST:event_compoundingComboBoxActionPerformed
 
     /**
      * @param args the command line arguments
