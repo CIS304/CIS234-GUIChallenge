@@ -271,7 +271,7 @@ public class FinancialAnalyzerGUI extends javax.swing.JFrame {
        textLabel2.setText("Initial Investment"); 
        textLabel3.setText("");
        textLabel6.setText("Investment Period (years"); 
-       textLabel7.setText
+       textLabel7.setText("Future Value");
        
     }//GEN-LAST:event_investmentValueRadioActionPerformed
 
@@ -287,11 +287,21 @@ public class FinancialAnalyzerGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_loanPaymentRadioActionPerformed
 
     private void compoundingComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_compoundingComboBoxActionPerformed
+        /*
         CompoundingOption oldValue = compoundingOption;
         compoundingOption = getSelectedCompounding();
         compoundingText = (String) compoundingCBox.getSelectedItem();
         
-        
+        if(loanRadioButton.isSelected()){
+            resultLabel.setText(compoundingText + "Payment");
+        }else{
+            requiredCashFlowLabel.setText(compoundingText + "Investment");
+        }
+        if(compoundingOption.getPeriodsPerYear() != oldValue.getPeriodsPerYear()){
+            resultTextField.setText("");
+            reportButton.setEnabled(false);
+        }
+        */
     }//GEN-LAST:event_compoundingComboBoxActionPerformed
 
     /**
