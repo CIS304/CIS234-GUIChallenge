@@ -200,13 +200,29 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="purchaseAmountText">
+      <Properties>
+        <Property name="horizontalAlignment" type="int" value="4"/>
+        <Property name="toolTipText" type="java.lang.String" value=""/>
+      </Properties>
+      <Events>
+        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="purchaseAmountTextKeyReleased"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JCheckBox" name="textLabel2">
       <Properties>
         <Property name="text" type="java.lang.String" value="Down Payment "/>
       </Properties>
+      <Events>
+        <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="textLabel2StateChanged"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="downPaymentText">
+      <Properties>
+        <Property name="horizontalAlignment" type="int" value="4"/>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="downPaymentText.setEnabled(false);&#xa;downPaymentText.setText(&quot;0&quot;);"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JLabel" name="textLabel3">
       <Properties>
@@ -214,6 +230,18 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="loanAmountText">
+      <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="ff" id="cyan" palette="1" red="0" type="palette"/>
+        </Property>
+        <Property name="horizontalAlignment" type="int" value="4"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="loanAmountTextActionPerformed"/>
+      </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="loanAmountText.setEditable(false);"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JLabel" name="aprTextLabel">
       <Properties>
@@ -221,6 +249,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="aprText">
+      <Properties>
+        <Property name="horizontalAlignment" type="int" value="4"/>
+      </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="compundingTextLabel">
       <Properties>
@@ -240,6 +271,7 @@
         </Property>
       </Properties>
       <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="compoundingComboBoxMouseClicked"/>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="compoundingComboBoxActionPerformed"/>
       </Events>
       <AuxValues>
@@ -252,6 +284,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="loanDurationText">
+      <Properties>
+        <Property name="horizontalAlignment" type="int" value="4"/>
+      </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="calculateButton">
       <Properties>
@@ -287,11 +322,15 @@
     </Component>
     <Component class="javax.swing.JLabel" name="textLabel7">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Monthly Payment"/>
+        <Property name="text" type="java.lang.String" value="Annual Payment"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="monthlyPaymentText">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="ff" id="cyan" palette="1" red="0" type="palette"/>
+        </Property>
+        <Property name="horizontalAlignment" type="int" value="4"/>
         <Property name="toolTipText" type="java.lang.String" value=""/>
       </Properties>
     </Component>

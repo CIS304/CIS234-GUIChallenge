@@ -77,15 +77,48 @@ public class FinancialAnalyzerGUI extends javax.swing.JFrame {
 
         textLabel1.setText("Purchase Amount ");
 
+        purchaseAmountText.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        purchaseAmountText.setToolTipText("");
+        purchaseAmountText.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                purchaseAmountTextKeyReleased(evt);
+            }
+        });
+
         textLabel2.setText("Down Payment ");
+        textLabel2.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                textLabel2StateChanged(evt);
+            }
+        });
+
+        downPaymentText.setEnabled(false);
+        downPaymentText.setText("0");
+        downPaymentText.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
 
         textLabel3.setText("Loan Amount");
 
+        loanAmountText.setEditable(false);
+        loanAmountText.setBackground(java.awt.Color.cyan);
+        loanAmountText.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        loanAmountText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                loanAmountTextActionPerformed(evt);
+            }
+        });
+
         aprTextLabel.setText("APR(%)");
+
+        aprText.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
 
         compundingTextLabel.setText("Compounding ");
 
         compoundingComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Annually", "Semiannual", "Quarterly", "Monthly", "Weekly" }));
+        compoundingComboBox.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                compoundingComboBoxMouseClicked(evt);
+            }
+        });
         compoundingComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 compoundingComboBoxActionPerformed(evt);
@@ -93,6 +126,8 @@ public class FinancialAnalyzerGUI extends javax.swing.JFrame {
         });
 
         textLabel6.setText("Loan Duration (years) ");
+
+        loanDurationText.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
 
         calculateButton.setText("Calculate");
         calculateButton.addActionListener(new java.awt.event.ActionListener() {
@@ -122,8 +157,10 @@ public class FinancialAnalyzerGUI extends javax.swing.JFrame {
             }
         });
 
-        textLabel7.setText("Monthly Payment");
+        textLabel7.setText("Annual Payment");
 
+        monthlyPaymentText.setBackground(java.awt.Color.cyan);
+        monthlyPaymentText.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         monthlyPaymentText.setToolTipText("");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -238,6 +275,11 @@ public class FinancialAnalyzerGUI extends javax.swing.JFrame {
 
     private void calculateButtonClick(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calculateButtonClick
         // TODO add your handling code here:
+        if(loanPaymentRadio.isSelected()){
+            
+        }else{
+            
+        }
     }//GEN-LAST:event_calculateButtonClick
 
     private void summaryReportButtonClick(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_summaryReportButtonClick
@@ -255,6 +297,7 @@ public class FinancialAnalyzerGUI extends javax.swing.JFrame {
         compoundingComboBox.setSelectedIndex(0); //Resets compounding option
         loanDurationText.setText("");
         monthlyPaymentText.setText("");
+        downPaymentText.setText("0");
         
         
 
@@ -270,8 +313,16 @@ public class FinancialAnalyzerGUI extends javax.swing.JFrame {
        textLabel1.setText("Monthly Investment");
        textLabel2.setText("Initial Investment"); 
        textLabel3.setText("");
-       textLabel6.setText("Investment Period (years"); 
+       textLabel6.setText("Investment Period (years)"); 
        textLabel7.setText("Future Value");
+       
+       //added by miranda
+       clearButtonClick(null);
+       
+       loanAmountText.setEnabled(false);
+       if(!textLabel2.isSelected()){
+           downPaymentText.setEnabled(false);
+       }
        
     }//GEN-LAST:event_investmentValueRadioActionPerformed
 
@@ -282,27 +333,76 @@ public class FinancialAnalyzerGUI extends javax.swing.JFrame {
         textLabel3.setText("Loan Payment");
         textLabel6.setText("Loan Duration (years)");
         textLabel7.setText("Monthly Payment");
+        textLabel2.setEnabled(true);
+        loanAmountText.setEnabled(true);
+
+        clearButtonClick(null);
             
                 
     }//GEN-LAST:event_loanPaymentRadioActionPerformed
 
     private void compoundingComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_compoundingComboBoxActionPerformed
-        /*
-        CompoundingOption oldValue = compoundingOption;
-        compoundingOption = getSelectedCompounding();
-        compoundingText = (String) compoundingCBox.getSelectedItem();
+
+        String selection = (String) compoundingComboBox.getSelectedItem();
         
-        if(loanRadioButton.isSelected()){
-            resultLabel.setText(compoundingText + "Payment");
+        if(loanPaymentRadio.isSelected()){
+            textLabel7.setText(selection + " Payment");
         }else{
-            requiredCashFlowLabel.setText(compoundingText + "Investment");
+            textLabel1.setText(selection + " Investment");
         }
-        if(compoundingOption.getPeriodsPerYear() != oldValue.getPeriodsPerYear()){
-            resultTextField.setText("");
-            reportButton.setEnabled(false);
+        if(lastCombo != selection){
+            monthlyPaymentText.setText("");
+            summaryReportButton.setEnabled(false);
         }
-        */
+        
+//        if(compoundingOption.getPeriodsPerYear() != oldValue.getPeriodsPerYear()){
+//            resultTextField.setText("");
+//            reportButton.setEnabled(false);
+//        }
+        
+//        CompoundingOption oldValue = compoundingOption;
+//        String compoundingOption = getSelectedCompounding();
+//        compoundingText = (String) compoundingCBox.getSelectedItem();
+//        
+//        if(loanRadioButton.isSelected()){
+//            resultLabel.setText(compoundingText + "Payment");
+//        }else{
+//            requiredCashFlowLabel.setText(compoundingText + "Investment");
+//        }
+//        if(compoundingOption.getPeriodsPerYear() != oldValue.getPeriodsPerYear()){
+//            resultTextField.setText("");
+//            reportButton.setEnabled(false);
+//        }
+          
     }//GEN-LAST:event_compoundingComboBoxActionPerformed
+
+    private void textLabel2StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_textLabel2StateChanged
+        // TODO add your handling code here:
+        if(textLabel2.isSelected()){
+            downPaymentText.setEnabled(true);
+            downPaymentText.setText("");
+        }else{
+            downPaymentText.setEnabled(false);
+            downPaymentText.setText("0");
+
+        }
+    }//GEN-LAST:event_textLabel2StateChanged
+
+    private void loanAmountTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loanAmountTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_loanAmountTextActionPerformed
+
+    private void purchaseAmountTextKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_purchaseAmountTextKeyReleased
+        loanAmountText.setText(purchaseAmountText.getText());
+// TODO add your handling code here:
+    }//GEN-LAST:event_purchaseAmountTextKeyReleased
+
+    private String lastCombo;
+    
+    private void compoundingComboBoxMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_compoundingComboBoxMouseClicked
+        // TODO add your handling code here:
+        lastCombo = (String) compoundingComboBox.getSelectedItem();
+    }//GEN-LAST:event_compoundingComboBoxMouseClicked
 
     /**
      * @param args the command line arguments
