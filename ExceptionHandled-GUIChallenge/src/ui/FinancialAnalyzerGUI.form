@@ -31,18 +31,9 @@
           <Group type="102" alignment="1" attributes="0">
               <Group type="103" groupAlignment="1" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <EmptySpace min="-2" pref="105" max="-2" attributes="0"/>
-                              <Component id="titleCalculator" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="textLabel7" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
-                      <Component id="monthlyPaymentText" max="32767" attributes="0"/>
+                      <EmptySpace min="-2" pref="105" max="-2" attributes="0"/>
+                      <Component id="titleCalculator" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
@@ -70,7 +61,7 @@
                           <Component id="textLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="textLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="125" pref="125" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="90" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="downPaymentText" max="32767" attributes="0"/>
                           <Component id="purchaseAmountText" max="32767" attributes="0"/>
@@ -82,12 +73,14 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="compundingTextLabel" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="textLabel6" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="textLabel7" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="aprText" max="32767" attributes="0"/>
-                          <Component id="compoundingComboBox" max="32767" attributes="0"/>
-                          <Component id="loanDurationText" max="32767" attributes="0"/>
+                          <Component id="monthlyPaymentText" max="32767" attributes="0"/>
+                          <Component id="compoundingComboBox" alignment="1" pref="113" max="32767" attributes="0"/>
+                          <Component id="aprText" alignment="0" min="-2" pref="60" max="-2" attributes="0"/>
+                          <Component id="loanDurationText" alignment="0" min="-2" pref="60" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>

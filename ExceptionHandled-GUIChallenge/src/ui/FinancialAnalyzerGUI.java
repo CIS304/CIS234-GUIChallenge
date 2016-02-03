@@ -4,8 +4,8 @@
  * and open the template in the editor.
  */
 package ui;
-import java.text.NumberFormat;
 
+import java.text.NumberFormat;
 import javax.swing.Icon;
 
 /**
@@ -15,7 +15,7 @@ import javax.swing.Icon;
 public class FinancialAnalyzerGUI extends javax.swing.JFrame {
     
     
-    NumberFormat currencyFormat = NumberFormat.getCurrencyInstance();
+    
     
     public FinancialAnalyzerGUI() {
         initComponents();
@@ -167,15 +167,9 @@ public class FinancialAnalyzerGUI extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(105, 105, 105)
-                                .addComponent(titleCalculator))
-                            .addGroup(layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(textLabel7)))
-                        .addGap(8, 8, 8)
-                        .addComponent(monthlyPaymentText))
+                        .addGap(105, 105, 105)
+                        .addComponent(titleCalculator)
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(clearButton)
@@ -198,7 +192,7 @@ public class FinancialAnalyzerGUI extends javax.swing.JFrame {
                             .addComponent(textLabel1)
                             .addComponent(textLabel2)
                             .addComponent(textLabel3))
-                        .addGap(125, 125, 125)
+                        .addGap(90, 90, 90)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(downPaymentText)
                             .addComponent(purchaseAmountText)
@@ -207,12 +201,14 @@ public class FinancialAnalyzerGUI extends javax.swing.JFrame {
                         .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(compundingTextLabel)
-                            .addComponent(textLabel6))
+                            .addComponent(textLabel6)
+                            .addComponent(textLabel7))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(aprText)
-                            .addComponent(compoundingComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(loanDurationText))))
+                            .addComponent(monthlyPaymentText)
+                            .addComponent(compoundingComboBox, javax.swing.GroupLayout.Alignment.TRAILING, 0, 113, Short.MAX_VALUE)
+                            .addComponent(aprText, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(loanDurationText, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(59, 59, 59))
         );
         layout.setVerticalGroup(
@@ -281,6 +277,12 @@ public class FinancialAnalyzerGUI extends javax.swing.JFrame {
 
     private void summaryReportButtonClick(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_summaryReportButtonClick
         // TODO add your handling code here:
+        
+        if(loanPaymentRadio.isSelected()){
+           
+        }else{
+            
+        }
     }//GEN-LAST:event_summaryReportButtonClick
 
     private void clearButtonClick(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearButtonClick
@@ -387,7 +389,6 @@ public class FinancialAnalyzerGUI extends javax.swing.JFrame {
         }else{
             downPaymentText.setEnabled(false);
             downPaymentText.setText("0");
-
         }
     }//GEN-LAST:event_textLabel2StateChanged
 
