@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package ui;
+import java.text.NumberFormat;
 
 import javax.swing.Icon;
 
@@ -12,10 +13,10 @@ import javax.swing.Icon;
  * @author kevin
  */
 public class FinancialAnalyzerGUI extends javax.swing.JFrame {
-
-    /**
-     * Creates new form FinancialAnalyzerGUI
-     */
+    
+    
+    NumberFormat currencyFormat = NumberFormat.getCurrencyInstance();
+    
     public FinancialAnalyzerGUI() {
         initComponents();
     }
@@ -101,11 +102,6 @@ public class FinancialAnalyzerGUI extends javax.swing.JFrame {
         loanAmountText.setEditable(false);
         loanAmountText.setBackground(java.awt.Color.cyan);
         loanAmountText.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        loanAmountText.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                loanAmountTextActionPerformed(evt);
-            }
-        });
 
         aprTextLabel.setText("APR(%)");
 
@@ -113,7 +109,7 @@ public class FinancialAnalyzerGUI extends javax.swing.JFrame {
 
         compundingTextLabel.setText("Compounding ");
 
-        compoundingComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Annually", "Semiannual", "Quarterly", "Monthly", "Weekly" }));
+        compoundingComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Annual", "Semiannual", "Quarterly", "Monthly", "Weekly" }));
         compoundingComboBox.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 compoundingComboBoxMouseClicked(evt);
@@ -159,6 +155,7 @@ public class FinancialAnalyzerGUI extends javax.swing.JFrame {
 
         textLabel7.setText("Annual Payment");
 
+        monthlyPaymentText.setEditable(false);
         monthlyPaymentText.setBackground(java.awt.Color.cyan);
         monthlyPaymentText.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         monthlyPaymentText.setToolTipText("");
@@ -287,8 +284,8 @@ public class FinancialAnalyzerGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_summaryReportButtonClick
 
     private void clearButtonClick(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearButtonClick
-        
-      
+       
+        //clears all fields
         purchaseAmountText.setText("");
         downPaymentText.setText("");
         textLabel2.setSelected(false); //Clears the check box
@@ -308,17 +305,18 @@ public class FinancialAnalyzerGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_exitButtonActionClick
 
     private void investmentValueRadioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_investmentValueRadioActionPerformed
-        // TODO add your handling code here:
-        // when investment radio button is clicked, change labels 
+        
+       // when investment radio button is clicked, change labels 
        textLabel1.setText("Monthly Investment");
        textLabel2.setText("Initial Investment"); 
        textLabel3.setText("");
        textLabel6.setText("Investment Period (years)"); 
        textLabel7.setText("Future Value");
        
-       //added by miranda
+       //calls clear button function when radio button is selected
        clearButtonClick(null);
        
+       //disables loan amount text and box
        loanAmountText.setEnabled(false);
        if(!textLabel2.isSelected()){
            downPaymentText.setEnabled(false);
@@ -328,6 +326,7 @@ public class FinancialAnalyzerGUI extends javax.swing.JFrame {
 
     private void loanPaymentRadioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loanPaymentRadioActionPerformed
         
+        // when loan payment radio button is clicked, change labels
         textLabel1.setText("Purchase Amount");
         textLabel2.setText("Down Payment");
         textLabel3.setText("Loan Payment");
@@ -335,7 +334,8 @@ public class FinancialAnalyzerGUI extends javax.swing.JFrame {
         textLabel7.setText("Monthly Payment");
         textLabel2.setEnabled(true);
         loanAmountText.setEnabled(true);
-
+        
+        //calls clear buton function when radio button is selected
         clearButtonClick(null);
             
                 
@@ -345,11 +345,13 @@ public class FinancialAnalyzerGUI extends javax.swing.JFrame {
 
         String selection = (String) compoundingComboBox.getSelectedItem();
         
+        //Payment/Investment frequency label changes 
         if(loanPaymentRadio.isSelected()){
             textLabel7.setText(selection + " Payment");
         }else{
             textLabel1.setText(selection + " Investment");
         }
+        //
         if(lastCombo != selection){
             monthlyPaymentText.setText("");
             summaryReportButton.setEnabled(false);
@@ -377,7 +379,8 @@ public class FinancialAnalyzerGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_compoundingComboBoxActionPerformed
 
     private void textLabel2StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_textLabel2StateChanged
-        // TODO add your handling code here:
+        
+        // Greys out and adds 0 if unchecked and the opposite if checked
         if(textLabel2.isSelected()){
             downPaymentText.setEnabled(true);
             downPaymentText.setText("");
@@ -388,19 +391,14 @@ public class FinancialAnalyzerGUI extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_textLabel2StateChanged
 
-    private void loanAmountTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loanAmountTextActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_loanAmountTextActionPerformed
-
     private void purchaseAmountTextKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_purchaseAmountTextKeyReleased
         loanAmountText.setText(purchaseAmountText.getText());
-// TODO add your handling code here:
     }//GEN-LAST:event_purchaseAmountTextKeyReleased
 
     private String lastCombo;
     
     private void compoundingComboBoxMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_compoundingComboBoxMouseClicked
-        // TODO add your handling code here:
+        //
         lastCombo = (String) compoundingComboBox.getSelectedItem();
     }//GEN-LAST:event_compoundingComboBoxMouseClicked
 
