@@ -7,6 +7,7 @@
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
+    <Property name="title" type="java.lang.String" value="Financial Analyzer"/>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
@@ -29,6 +30,20 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
               <Group type="103" groupAlignment="1" attributes="0">
+                  <Group type="102" alignment="1" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="-2" pref="105" max="-2" attributes="0"/>
+                              <Component id="titleCalculator" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="textLabel7" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
+                      <Component id="monthlyPaymentText" max="32767" attributes="0"/>
+                  </Group>
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="clearButton" min="-2" max="-2" attributes="0"/>
@@ -50,48 +65,33 @@
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="apr" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="downPayment" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="loanAmount" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="aprTextLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="textLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="textLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="textLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="loanAmountText" max="32767" attributes="0"/>
+                      <EmptySpace min="125" pref="125" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="downPaymentText" max="32767" attributes="0"/>
-                          <Component id="aprText" max="32767" attributes="0"/>
-                          <Component id="purchaseAmountText" alignment="1" pref="56" max="32767" attributes="0"/>
+                          <Component id="purchaseAmountText" max="32767" attributes="0"/>
+                          <Component id="loanAmountText" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="Compounding" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="compundingTextLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="textLabel6" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="compoundingComboBox" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Component id="loanDurationText" alignment="1" min="-2" pref="26" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="aprText" max="32767" attributes="0"/>
+                          <Component id="compoundingComboBox" max="32767" attributes="0"/>
+                          <Component id="loanDurationText" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
               <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
-          </Group>
-          <Group type="102" alignment="1" attributes="0">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="105" max="-2" attributes="0"/>
-                      <Component id="titleCalculator" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="monthlyPayment" min="-2" max="-2" attributes="0"/>
-                  </Group>
-              </Group>
-              <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
-              <Component id="monthlyPaymentText" max="32767" attributes="0"/>
-              <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -104,42 +104,40 @@
                   <Component id="investmentValueRadio" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="1" attributes="0">
-                  <Group type="102" attributes="0">
-                      <Component id="titleCalculator" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Component id="purchaseAmountText" min="-2" max="-2" attributes="0"/>
+              <Component id="titleCalculator" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="textLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="purchaseAmountText" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="downPayment" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="textLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="downPaymentText" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="loanAmount" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="textLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="loanAmountText" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="aprText" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="apr" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="aprTextLabel" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="compoundingComboBox" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="Compounding" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="compundingTextLabel" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jLabel2" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
+                  <Component id="textLabel6" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
                   <Component id="loanDurationText" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="monthlyPayment" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="textLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="monthlyPaymentText" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
@@ -152,7 +150,7 @@
                   <Component id="clearButton" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="exitButton" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="31" max="32767" attributes="0"/>
+              <EmptySpace pref="28" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -163,11 +161,15 @@
         <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
           <ComponentRef name="radioButtons"/>
         </Property>
+        <Property name="selected" type="boolean" value="true"/>
         <Property name="text" type="java.lang.String" value="Loan Payment "/>
       </Properties>
       <AccessibilityProperties>
         <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="loanPaymentRadio"/>
       </AccessibilityProperties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="loanPaymentRadioActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JRadioButton" name="investmentValueRadio">
       <Properties>
@@ -180,6 +182,9 @@
       <AccessibilityProperties>
         <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="investmentValueRadio"/>
       </AccessibilityProperties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="investmentValueRadioActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="titleCalculator">
       <Properties>
@@ -189,35 +194,35 @@
         <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="titleCalculator"/>
       </AccessibilityProperties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel1">
+    <Component class="javax.swing.JLabel" name="textLabel1">
       <Properties>
         <Property name="text" type="java.lang.String" value="Purchase Amount "/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="purchaseAmountText">
     </Component>
-    <Component class="javax.swing.JCheckBox" name="downPayment">
+    <Component class="javax.swing.JCheckBox" name="textLabel2">
       <Properties>
         <Property name="text" type="java.lang.String" value="Down Payment "/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="downPaymentText">
     </Component>
-    <Component class="javax.swing.JLabel" name="loanAmount">
+    <Component class="javax.swing.JLabel" name="textLabel3">
       <Properties>
         <Property name="text" type="java.lang.String" value="Loan Amount"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="loanAmountText">
     </Component>
-    <Component class="javax.swing.JLabel" name="apr">
+    <Component class="javax.swing.JLabel" name="aprTextLabel">
       <Properties>
         <Property name="text" type="java.lang.String" value="APR(%)"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="aprText">
     </Component>
-    <Component class="javax.swing.JLabel" name="Compounding">
+    <Component class="javax.swing.JLabel" name="compundingTextLabel">
       <Properties>
         <Property name="text" type="java.lang.String" value="Compounding "/>
       </Properties>
@@ -234,11 +239,14 @@
           </StringArray>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="compoundingComboBoxActionPerformed"/>
+      </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel2">
+    <Component class="javax.swing.JLabel" name="textLabel6">
       <Properties>
         <Property name="text" type="java.lang.String" value="Loan Duration (years) "/>
       </Properties>
@@ -277,7 +285,7 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="exitButtonActionClick"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="monthlyPayment">
+    <Component class="javax.swing.JLabel" name="textLabel7">
       <Properties>
         <Property name="text" type="java.lang.String" value="Monthly Payment"/>
       </Properties>
