@@ -84,6 +84,7 @@ public class FinancialAnalyzerGUI extends javax.swing.JFrame {
             }
         });
 
+        titleCalculator.setFont(new java.awt.Font("Tahoma", 3, 13)); // NOI18N
         titleCalculator.setText("Loan Payment Calculator");
 
         textLabel1.setText("Purchase Amount ");
@@ -164,6 +165,7 @@ public class FinancialAnalyzerGUI extends javax.swing.JFrame {
             }
         });
 
+        textLabel7.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         textLabel7.setText("Annual Payment");
 
         textField7.setEditable(false);
