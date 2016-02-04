@@ -197,9 +197,6 @@
         <Property name="horizontalAlignment" type="int" value="4"/>
         <Property name="toolTipText" type="java.lang.String" value=""/>
       </Properties>
-      <Events>
-        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="textField1KeyReleased"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JCheckBox" name="textLabel2">
       <Properties>
@@ -232,9 +229,6 @@
         </Property>
         <Property name="horizontalAlignment" type="int" value="4"/>
       </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="textField3ActionPerformed"/>
-      </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="textField3.setEditable(false);"/>
       </AuxValues>

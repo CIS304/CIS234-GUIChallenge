@@ -23,10 +23,12 @@ public class FinancialAnalyzerGUI extends javax.swing.JFrame {
     
     private TVMEngine engine; 
     private ReportGenerator report; 
+    SwingValidator sv; 
     
     
     public FinancialAnalyzerGUI() {
         initComponents();
+        sv = new SwingValidator(); 
     }
 
     /**
@@ -88,11 +90,6 @@ public class FinancialAnalyzerGUI extends javax.swing.JFrame {
 
         textField1.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         textField1.setToolTipText("");
-        textField1.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                textField1KeyReleased(evt);
-            }
-        });
 
         textLabel2.setText("Down Payment ");
         textLabel2.addChangeListener(new javax.swing.event.ChangeListener() {
@@ -115,11 +112,6 @@ public class FinancialAnalyzerGUI extends javax.swing.JFrame {
         textField3.setEditable(false);
         textField3.setBackground(java.awt.Color.cyan);
         textField3.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        textField3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textField3ActionPerformed(evt);
-            }
-        });
 
         aprTextLabel.setText("APR(%)");
 
@@ -286,10 +278,11 @@ public class FinancialAnalyzerGUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void calculateButtonClick(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calculateButtonClick
-
+        if(isValidData()){
             calculation();
+        } 
             
-                            
+        if (loanPaymentRadio.isSelected()){                    
         double loanAmount; 
         String loanAmountString; 
         double purchaseAmount = Double.parseDouble(textField1.getText()); 
@@ -298,8 +291,11 @@ public class FinancialAnalyzerGUI extends javax.swing.JFrame {
         loanAmount = purchaseAmount - downPayment; 
         loanAmountString = Double.toString(loanAmount); 
         
-        
         textField3.setText(loanAmountString); 
+        }else {
+            
+        }
+        
     }//GEN-LAST:event_calculateButtonClick
 
     private void calculation(){
@@ -328,6 +324,17 @@ public class FinancialAnalyzerGUI extends javax.swing.JFrame {
         summaryReportButton.setEnabled(true);
     }
     
+     private boolean isValidData() {
+        return sv.isPresent(textField1, textLabel1.getText())
+                && sv.isDoubleGreaterThanZero(textField1, textLabel1.getText())
+                && sv.isPresent(textField2, textLabel2.getText())
+                && sv.isDoublePositive(textField2, textLabel2.getText())
+                && sv.isPresent(aprTextField, aprTextLabel.getText())
+                && sv.isDoublePositive(aprTextField, aprTextLabel.getText())
+                && sv.isPresent(textField6, textLabel6.getText())
+                && sv.isDoublePositive(textField6, textLabel6.getText());
+    }
+     
     private CompoundingOption comboBoxIndex(){
        int index = compoundingComboBox.getSelectedIndex(); 
        CompoundingOption compounding; 
@@ -386,6 +393,7 @@ public class FinancialAnalyzerGUI extends javax.swing.JFrame {
        textLabel3.setText("");
        textLabel6.setText("Investment Period (years)"); 
        textLabel7.setText("Future Value");
+       titleCalculator.setText("Investment Calculator");
        
        //calls clear button function when radio button is selected
        clearButtonClick(null);
@@ -464,30 +472,12 @@ public class FinancialAnalyzerGUI extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_textLabel2StateChanged
 
-    private void textField1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textField1KeyReleased
-        textField3.setText(textField1.getText());
-    }//GEN-LAST:event_textField1KeyReleased
-
     private String lastCombo;
     
     private void compoundingComboBoxMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_compoundingComboBoxMouseClicked
         //
         lastCombo = (String) compoundingComboBox.getSelectedItem();
     }//GEN-LAST:event_compoundingComboBoxMouseClicked
-
-    private void textField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textField3ActionPerformed
-        
-        double loanAmount; 
-        String loanAmountString; 
-        double purchaseAmount = Double.parseDouble(textField1.getText()); 
-        double downPayment = Double.parseDouble(textField2.getText());  
-        
-        loanAmount = purchaseAmount - downPayment; 
-        loanAmountString = Double.toString(loanAmount); 
-        
-        
-        textField3.setText(loanAmountString);
-    }//GEN-LAST:event_textField3ActionPerformed
 
     private void textField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textField2ActionPerformed
         // TODO add your handling code here:
