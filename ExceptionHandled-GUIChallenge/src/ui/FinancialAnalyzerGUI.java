@@ -11,7 +11,7 @@ import finance.Investment;
 import finance.LoanPayment; 
 import finance.TVMEngine; 
 import finance.ReportGenerator; 
-import finance.enums.CompoundingOption;1
+import finance.enums.CompoundingOption;
 
 
 /**
@@ -304,6 +304,8 @@ public class FinancialAnalyzerGUI extends javax.swing.JFrame {
             engine = newInvestment; 
             report = newInvestment; 
         }
+        textField7.setText(engine.getValue());
+        summaryReportButton.setEnabled(true);
     }
     
   
