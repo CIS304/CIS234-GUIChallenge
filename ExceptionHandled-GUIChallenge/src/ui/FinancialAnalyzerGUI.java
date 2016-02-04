@@ -104,12 +104,22 @@ public class FinancialAnalyzerGUI extends javax.swing.JFrame {
         textField2.setEnabled(false);
         textField2.setText("0");
         textField2.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        textField2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textField2ActionPerformed(evt);
+            }
+        });
 
         textLabel3.setText("Loan Amount");
 
         textField3.setEditable(false);
         textField3.setBackground(java.awt.Color.cyan);
         textField3.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        textField3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textField3ActionPerformed(evt);
+            }
+        });
 
         aprTextLabel.setText("APR(%)");
 
@@ -278,6 +288,18 @@ public class FinancialAnalyzerGUI extends javax.swing.JFrame {
     private void calculateButtonClick(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calculateButtonClick
 
             calculation();
+            
+                            
+        double loanAmount; 
+        String loanAmountString; 
+        double purchaseAmount = Double.parseDouble(textField1.getText()); 
+        double downPayment = Double.parseDouble(textField2.getText());  
+        
+        loanAmount = purchaseAmount - downPayment; 
+        loanAmountString = Double.toString(loanAmount); 
+        
+        
+        textField3.setText(loanAmountString); 
     }//GEN-LAST:event_calculateButtonClick
 
     private void calculation(){
@@ -452,6 +474,35 @@ public class FinancialAnalyzerGUI extends javax.swing.JFrame {
         //
         lastCombo = (String) compoundingComboBox.getSelectedItem();
     }//GEN-LAST:event_compoundingComboBoxMouseClicked
+
+    private void textField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textField3ActionPerformed
+        
+        double loanAmount; 
+        String loanAmountString; 
+        double purchaseAmount = Double.parseDouble(textField1.getText()); 
+        double downPayment = Double.parseDouble(textField2.getText());  
+        
+        loanAmount = purchaseAmount - downPayment; 
+        loanAmountString = Double.toString(loanAmount); 
+        
+        
+        textField3.setText(loanAmountString);
+    }//GEN-LAST:event_textField3ActionPerformed
+
+    private void textField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textField2ActionPerformed
+        // TODO add your handling code here:
+                
+        double loanAmount; 
+        String loanAmountString; 
+        double purchaseAmount = Double.parseDouble(textField1.getText()); 
+        double downPayment = Double.parseDouble(textField2.getText());  
+        
+        loanAmount = purchaseAmount - downPayment; 
+        loanAmountString = Double.toString(loanAmount); 
+        
+        
+        textField3.setText(loanAmountString);
+    }//GEN-LAST:event_textField2ActionPerformed
 
     /**
      * @param args the command line arguments
