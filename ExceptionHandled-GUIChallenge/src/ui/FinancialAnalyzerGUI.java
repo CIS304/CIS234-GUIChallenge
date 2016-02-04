@@ -275,12 +275,8 @@ public class FinancialAnalyzerGUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void calculateButtonClick(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calculateButtonClick
-        // TODO add your handling code here:
-        if(loanPaymentRadio.isSelected()){
+
             calculation();
-        }else{
-            
-        }
     }//GEN-LAST:event_calculateButtonClick
 
     private void calculation(){
