@@ -63,9 +63,9 @@
                       </Group>
                       <EmptySpace min="-2" pref="90" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="downPaymentText" max="32767" attributes="0"/>
-                          <Component id="purchaseAmountText" max="32767" attributes="0"/>
-                          <Component id="loanAmountText" max="32767" attributes="0"/>
+                          <Component id="textField2" max="32767" attributes="0"/>
+                          <Component id="textField1" max="32767" attributes="0"/>
+                          <Component id="textField3" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
@@ -77,10 +77,10 @@
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="monthlyPaymentText" max="32767" attributes="0"/>
+                          <Component id="textField7" max="32767" attributes="0"/>
                           <Component id="compoundingComboBox" alignment="1" pref="113" max="32767" attributes="0"/>
-                          <Component id="aprText" alignment="0" min="-2" pref="60" max="-2" attributes="0"/>
-                          <Component id="loanDurationText" alignment="0" min="-2" pref="60" max="-2" attributes="0"/>
+                          <Component id="aprTextField" alignment="0" min="-2" pref="60" max="-2" attributes="0"/>
+                          <Component id="textField6" alignment="0" min="-2" pref="60" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -101,21 +101,21 @@
               <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="textLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="purchaseAmountText" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="textField1" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="textLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="downPaymentText" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="textField2" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="textLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="loanAmountText" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="textField3" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="aprText" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="aprTextField" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="aprTextLabel" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -126,12 +126,12 @@
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="textLabel6" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
-                  <Component id="loanDurationText" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="textField6" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="textLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="monthlyPaymentText" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="textField7" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -192,13 +192,13 @@
         <Property name="text" type="java.lang.String" value="Purchase Amount "/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="purchaseAmountText">
+    <Component class="javax.swing.JTextField" name="textField1">
       <Properties>
         <Property name="horizontalAlignment" type="int" value="4"/>
         <Property name="toolTipText" type="java.lang.String" value=""/>
       </Properties>
       <Events>
-        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="purchaseAmountTextKeyReleased"/>
+        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="textField1KeyReleased"/>
       </Events>
     </Component>
     <Component class="javax.swing.JCheckBox" name="textLabel2">
@@ -209,12 +209,12 @@
         <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="textLabel2StateChanged"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="downPaymentText">
+    <Component class="javax.swing.JTextField" name="textField2">
       <Properties>
         <Property name="horizontalAlignment" type="int" value="4"/>
       </Properties>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="downPaymentText.setEnabled(false);&#xa;downPaymentText.setText(&quot;0&quot;);"/>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="textField2.setEnabled(false);&#xa;textField2.setText(&quot;0&quot;);"/>
       </AuxValues>
     </Component>
     <Component class="javax.swing.JLabel" name="textLabel3">
@@ -222,7 +222,7 @@
         <Property name="text" type="java.lang.String" value="Loan Amount"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="loanAmountText">
+    <Component class="javax.swing.JTextField" name="textField3">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ff" green="ff" id="cyan" palette="1" red="0" type="palette"/>
@@ -230,7 +230,7 @@
         <Property name="horizontalAlignment" type="int" value="4"/>
       </Properties>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="loanAmountText.setEditable(false);"/>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="textField3.setEditable(false);"/>
       </AuxValues>
     </Component>
     <Component class="javax.swing.JLabel" name="aprTextLabel">
@@ -238,7 +238,7 @@
         <Property name="text" type="java.lang.String" value="APR(%)"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="aprText">
+    <Component class="javax.swing.JTextField" name="aprTextField">
       <Properties>
         <Property name="horizontalAlignment" type="int" value="4"/>
       </Properties>
@@ -273,7 +273,7 @@
         <Property name="text" type="java.lang.String" value="Loan Duration (years) "/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="loanDurationText">
+    <Component class="javax.swing.JTextField" name="textField6">
       <Properties>
         <Property name="horizontalAlignment" type="int" value="4"/>
       </Properties>
@@ -315,7 +315,7 @@
         <Property name="text" type="java.lang.String" value="Annual Payment"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="monthlyPaymentText">
+    <Component class="javax.swing.JTextField" name="textField7">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ff" green="ff" id="cyan" palette="1" red="0" type="palette"/>
@@ -324,7 +324,7 @@
         <Property name="toolTipText" type="java.lang.String" value=""/>
       </Properties>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="monthlyPaymentText.setEditable(false);"/>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="textField7.setEditable(false);"/>
       </AuxValues>
     </Component>
   </SubComponents>

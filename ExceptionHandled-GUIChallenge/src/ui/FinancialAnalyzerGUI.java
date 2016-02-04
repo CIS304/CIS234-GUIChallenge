@@ -5,8 +5,14 @@
  */
 package ui;
 
-import java.text.NumberFormat;
-import javax.swing.Icon;
+
+import javax.swing.Icon; 
+import finance.Investment;
+import finance.LoanPayment; 
+import finance.TVMEngine; 
+import finance.ReportGenerator; 
+import finance.enums.CompoundingOption;1
+
 
 /**
  *
@@ -14,7 +20,8 @@ import javax.swing.Icon;
  */
 public class FinancialAnalyzerGUI extends javax.swing.JFrame {
     
-    
+    private TVMEngine engine; 
+    private ReportGenerator report; 
     
     
     public FinancialAnalyzerGUI() {
@@ -35,23 +42,23 @@ public class FinancialAnalyzerGUI extends javax.swing.JFrame {
         investmentValueRadio = new javax.swing.JRadioButton();
         titleCalculator = new javax.swing.JLabel();
         textLabel1 = new javax.swing.JLabel();
-        purchaseAmountText = new javax.swing.JTextField();
+        textField1 = new javax.swing.JTextField();
         textLabel2 = new javax.swing.JCheckBox();
-        downPaymentText = new javax.swing.JTextField();
+        textField2 = new javax.swing.JTextField();
         textLabel3 = new javax.swing.JLabel();
-        loanAmountText = new javax.swing.JTextField();
+        textField3 = new javax.swing.JTextField();
         aprTextLabel = new javax.swing.JLabel();
-        aprText = new javax.swing.JTextField();
+        aprTextField = new javax.swing.JTextField();
         compundingTextLabel = new javax.swing.JLabel();
         compoundingComboBox = new javax.swing.JComboBox<>();
         textLabel6 = new javax.swing.JLabel();
-        loanDurationText = new javax.swing.JTextField();
+        textField6 = new javax.swing.JTextField();
         calculateButton = new javax.swing.JButton();
         clearButton = new javax.swing.JButton();
         summaryReportButton = new javax.swing.JButton();
         exitButton = new javax.swing.JButton();
         textLabel7 = new javax.swing.JLabel();
-        monthlyPaymentText = new javax.swing.JTextField();
+        textField7 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Financial Analyzer");
@@ -78,11 +85,11 @@ public class FinancialAnalyzerGUI extends javax.swing.JFrame {
 
         textLabel1.setText("Purchase Amount ");
 
-        purchaseAmountText.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        purchaseAmountText.setToolTipText("");
-        purchaseAmountText.addKeyListener(new java.awt.event.KeyAdapter() {
+        textField1.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        textField1.setToolTipText("");
+        textField1.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                purchaseAmountTextKeyReleased(evt);
+                textField1KeyReleased(evt);
             }
         });
 
@@ -93,19 +100,19 @@ public class FinancialAnalyzerGUI extends javax.swing.JFrame {
             }
         });
 
-        downPaymentText.setEnabled(false);
-        downPaymentText.setText("0");
-        downPaymentText.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        textField2.setEnabled(false);
+        textField2.setText("0");
+        textField2.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
 
         textLabel3.setText("Loan Amount");
 
-        loanAmountText.setEditable(false);
-        loanAmountText.setBackground(java.awt.Color.cyan);
-        loanAmountText.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        textField3.setEditable(false);
+        textField3.setBackground(java.awt.Color.cyan);
+        textField3.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
 
         aprTextLabel.setText("APR(%)");
 
-        aprText.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        aprTextField.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
 
         compundingTextLabel.setText("Compounding ");
 
@@ -123,7 +130,7 @@ public class FinancialAnalyzerGUI extends javax.swing.JFrame {
 
         textLabel6.setText("Loan Duration (years) ");
 
-        loanDurationText.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        textField6.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
 
         calculateButton.setText("Calculate");
         calculateButton.addActionListener(new java.awt.event.ActionListener() {
@@ -155,10 +162,10 @@ public class FinancialAnalyzerGUI extends javax.swing.JFrame {
 
         textLabel7.setText("Annual Payment");
 
-        monthlyPaymentText.setEditable(false);
-        monthlyPaymentText.setBackground(java.awt.Color.cyan);
-        monthlyPaymentText.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        monthlyPaymentText.setToolTipText("");
+        textField7.setEditable(false);
+        textField7.setBackground(java.awt.Color.cyan);
+        textField7.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        textField7.setToolTipText("");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -194,9 +201,9 @@ public class FinancialAnalyzerGUI extends javax.swing.JFrame {
                             .addComponent(textLabel3))
                         .addGap(90, 90, 90)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(downPaymentText)
-                            .addComponent(purchaseAmountText)
-                            .addComponent(loanAmountText)))
+                            .addComponent(textField2)
+                            .addComponent(textField1)
+                            .addComponent(textField3)))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -205,10 +212,10 @@ public class FinancialAnalyzerGUI extends javax.swing.JFrame {
                             .addComponent(textLabel7))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(monthlyPaymentText)
+                            .addComponent(textField7)
                             .addComponent(compoundingComboBox, javax.swing.GroupLayout.Alignment.TRAILING, 0, 113, Short.MAX_VALUE)
-                            .addComponent(aprText, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(loanDurationText, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(aprTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(textField6, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(59, 59, 59))
         );
         layout.setVerticalGroup(
@@ -223,18 +230,18 @@ public class FinancialAnalyzerGUI extends javax.swing.JFrame {
                 .addGap(27, 27, 27)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(textLabel1)
-                    .addComponent(purchaseAmountText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(textField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(textLabel2)
-                    .addComponent(downPaymentText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(textField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(textLabel3)
-                    .addComponent(loanAmountText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(textField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(aprText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(aprTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(aprTextLabel))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -243,11 +250,11 @@ public class FinancialAnalyzerGUI extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(textLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(loanDurationText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(textField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(textLabel7)
-                    .addComponent(monthlyPaymentText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(textField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(20, 20, 20)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(calculateButton)
@@ -269,12 +276,37 @@ public class FinancialAnalyzerGUI extends javax.swing.JFrame {
     private void calculateButtonClick(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calculateButtonClick
         // TODO add your handling code here:
         if(loanPaymentRadio.isSelected()){
-            
+            calculation();
         }else{
             
         }
     }//GEN-LAST:event_calculateButtonClick
 
+    private void calculation(){
+        double purchaseAmount; 
+        double downPayment; 
+        double apr; 
+        int compounding; 
+        double loanDuration; 
+
+        purchaseAmount = Double.parseDouble(textField1.getText()); 
+        downPayment = Double.parseDouble(textField2.getText());  
+        apr = Double.parseDouble(aprTextField.getText()); 
+        compounding = compoundingComboBox.getSelectedIndex(); 
+        loanDuration = Double.parseDouble(textField6.getText()); 
+        
+        if (loanPaymentRadio.isSelected()){
+            LoanPayment newLoanPayment = new LoanPayment(purchaseAmount, downPayment, apr, CompoundingOption.MONTHLY, loanDuration); 
+            engine = newLoanPayment; 
+            report = newLoanPayment; 
+        } else {
+            Investment newInvestment = new Investment(downPayment, purchaseAmount, apr, CompoundingOption.MONTHLY, loanDuration); 
+            engine = newInvestment; 
+            report = newInvestment; 
+        }
+    }
+    
+  
     private void summaryReportButtonClick(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_summaryReportButtonClick
         // TODO add your handling code here:
         
@@ -288,15 +320,15 @@ public class FinancialAnalyzerGUI extends javax.swing.JFrame {
     private void clearButtonClick(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearButtonClick
        
         //clears all fields
-        purchaseAmountText.setText("");
-        downPaymentText.setText("");
+        textField1.setText("");
+        textField2.setText("");
         textLabel2.setSelected(false); //Clears the check box
-        loanAmountText.setText("");
-        aprText.setText(""); 
+        textField3.setText("");
+        aprTextField.setText(""); 
         compoundingComboBox.setSelectedIndex(0); //Resets compounding option
-        loanDurationText.setText("");
-        monthlyPaymentText.setText("");
-        downPaymentText.setText("0");
+        textField6.setText("");
+        textField7.setText("");
+        textField2.setText("0");
         
         
 
@@ -319,9 +351,9 @@ public class FinancialAnalyzerGUI extends javax.swing.JFrame {
        clearButtonClick(null);
        
        //disables loan amount text and box
-       loanAmountText.setEnabled(false);
+       textField3.setEnabled(false);
        if(!textLabel2.isSelected()){
-           downPaymentText.setEnabled(false);
+           textField2.setEnabled(false);
        }
        
     }//GEN-LAST:event_investmentValueRadioActionPerformed
@@ -335,7 +367,7 @@ public class FinancialAnalyzerGUI extends javax.swing.JFrame {
         textLabel6.setText("Loan Duration (years)");
         textLabel7.setText("Monthly Payment");
         textLabel2.setEnabled(true);
-        loanAmountText.setEnabled(true);
+        textField3.setEnabled(true);
         
         //calls clear buton function when radio button is selected
         clearButtonClick(null);
@@ -355,7 +387,7 @@ public class FinancialAnalyzerGUI extends javax.swing.JFrame {
         }
         //
         if(lastCombo != selection){
-            monthlyPaymentText.setText("");
+            textField7.setText("");
             summaryReportButton.setEnabled(false);
         }
         
@@ -384,17 +416,17 @@ public class FinancialAnalyzerGUI extends javax.swing.JFrame {
         
         // Greys out and adds 0 if unchecked and the opposite if checked
         if(textLabel2.isSelected()){
-            downPaymentText.setEnabled(true);
-            downPaymentText.setText("");
+            textField2.setEnabled(true);
+            textField2.setText("");
         }else{
-            downPaymentText.setEnabled(false);
-            downPaymentText.setText("0");
+            textField2.setEnabled(false);
+            textField2.setText("0");
         }
     }//GEN-LAST:event_textLabel2StateChanged
 
-    private void purchaseAmountTextKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_purchaseAmountTextKeyReleased
-        loanAmountText.setText(purchaseAmountText.getText());
-    }//GEN-LAST:event_purchaseAmountTextKeyReleased
+    private void textField1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textField1KeyReleased
+        textField3.setText(textField1.getText());
+    }//GEN-LAST:event_textField1KeyReleased
 
     private String lastCombo;
     
@@ -443,22 +475,22 @@ public class FinancialAnalyzerGUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField aprText;
+    private javax.swing.JTextField aprTextField;
     private javax.swing.JLabel aprTextLabel;
     private javax.swing.JButton calculateButton;
     private javax.swing.JButton clearButton;
     private javax.swing.JComboBox<String> compoundingComboBox;
     private javax.swing.JLabel compundingTextLabel;
-    private javax.swing.JTextField downPaymentText;
     private javax.swing.JButton exitButton;
     private javax.swing.JRadioButton investmentValueRadio;
-    private javax.swing.JTextField loanAmountText;
-    private javax.swing.JTextField loanDurationText;
     private javax.swing.JRadioButton loanPaymentRadio;
-    private javax.swing.JTextField monthlyPaymentText;
-    private javax.swing.JTextField purchaseAmountText;
     private javax.swing.ButtonGroup radioButtons;
     private javax.swing.JButton summaryReportButton;
+    private javax.swing.JTextField textField1;
+    private javax.swing.JTextField textField2;
+    private javax.swing.JTextField textField3;
+    private javax.swing.JTextField textField6;
+    private javax.swing.JTextField textField7;
     private javax.swing.JLabel textLabel1;
     private javax.swing.JCheckBox textLabel2;
     private javax.swing.JLabel textLabel3;
