@@ -309,17 +309,23 @@ public class FinancialAnalyzerGUI extends javax.swing.JFrame {
        int index = compoundingComboBox.getSelectedIndex(); 
        CompoundingOption compounding; 
        
-       if(index == 0){
-           compounding = CompoundingOption.ANNUAL; 
-       } else if (index == 1){
-           compounding = CompoundingOption.SEMIANNUAL; 
-       } else if (index == 2){
-           compounding = CompoundingOption.QUARTERLY; 
-       } else if (index == 3){
-           compounding =  CompoundingOption.MONTHLY; 
-       } else {
-           compounding = CompoundingOption.WEEKLY; 
-       }
+        switch (index) {
+            case 0:
+                compounding = CompoundingOption.ANNUAL;
+                break;
+            case 1:
+                compounding = CompoundingOption.SEMIANNUAL;
+                break;
+            case 2:
+                compounding = CompoundingOption.QUARTERLY;
+                break;
+            case 3:
+                compounding =  CompoundingOption.MONTHLY;
+                break;
+            default:
+                compounding = CompoundingOption.WEEKLY;
+                break;
+        }
         return compounding; 
     }
     
