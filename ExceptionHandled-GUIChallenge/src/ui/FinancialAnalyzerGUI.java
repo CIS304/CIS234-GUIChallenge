@@ -147,6 +147,7 @@ public class FinancialAnalyzerGUI extends javax.swing.JFrame {
         });
 
         summaryReportButton.setText("Summary Report");
+        summaryReportButton.setEnabled(false);
         summaryReportButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 summaryReportButtonClick(evt);
@@ -296,16 +297,34 @@ public class FinancialAnalyzerGUI extends javax.swing.JFrame {
         loanDuration = Double.parseDouble(textField6.getText()); 
         
         if (loanPaymentRadio.isSelected()){
-            LoanPayment newLoanPayment = new LoanPayment(purchaseAmount, downPayment, apr, CompoundingOption.ANNUAL, loanDuration); 
+            LoanPayment newLoanPayment = new LoanPayment(purchaseAmount, downPayment, apr, comboBoxIndex(), loanDuration); 
             engine = newLoanPayment; 
             report = newLoanPayment; 
         } else {
-            Investment newInvestment = new Investment(downPayment, purchaseAmount, apr, CompoundingOption.ANNUAL, loanDuration); 
+            Investment newInvestment = new Investment(downPayment, purchaseAmount, apr, comboBoxIndex(), loanDuration); 
             engine = newInvestment; 
             report = newInvestment; 
         }
         textField7.setText(engine.getValue());
         summaryReportButton.setEnabled(true);
+    }
+    
+    private CompoundingOption comboBoxIndex(){
+       int index = compoundingComboBox.getSelectedIndex(); 
+       CompoundingOption compounding; 
+       
+       if(index == 0){
+           compounding = CompoundingOption.ANNUAL; 
+       } else if (index == 1){
+           compounding = CompoundingOption.SEMIANNUAL; 
+       } else if (index == 2){
+           compounding = CompoundingOption.QUARTERLY; 
+       } else if (index == 3){
+           compounding =  CompoundingOption.MONTHLY; 
+       } else {
+           compounding = CompoundingOption.WEEKLY; 
+       }
+        return compounding; 
     }
     
   
