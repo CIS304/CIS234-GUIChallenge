@@ -296,11 +296,11 @@ public class FinancialAnalyzerGUI extends javax.swing.JFrame {
         loanDuration = Double.parseDouble(textField6.getText()); 
         
         if (loanPaymentRadio.isSelected()){
-            LoanPayment newLoanPayment = new LoanPayment(purchaseAmount, downPayment, apr, CompoundingOption.MONTHLY, loanDuration); 
+            LoanPayment newLoanPayment = new LoanPayment(purchaseAmount, downPayment, apr, CompoundingOption.ANNUAL, loanDuration); 
             engine = newLoanPayment; 
             report = newLoanPayment; 
         } else {
-            Investment newInvestment = new Investment(downPayment, purchaseAmount, apr, CompoundingOption.MONTHLY, loanDuration); 
+            Investment newInvestment = new Investment(downPayment, purchaseAmount, apr, CompoundingOption.ANNUAL, loanDuration); 
             engine = newInvestment; 
             report = newInvestment; 
         }
