@@ -12,6 +12,7 @@ import finance.LoanPayment;
 import finance.TVMEngine; 
 import finance.ReportGenerator; 
 import finance.enums.CompoundingOption;
+import javax.swing.JOptionPane;
 
 
 /**
@@ -331,13 +332,7 @@ public class FinancialAnalyzerGUI extends javax.swing.JFrame {
     
   
     private void summaryReportButtonClick(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_summaryReportButtonClick
-        // TODO add your handling code here:
-        
-        if(loanPaymentRadio.isSelected()){
-           
-        }else{
-            
-        }
+         JOptionPane.showMessageDialog(null, report.generateReport());
     }//GEN-LAST:event_summaryReportButtonClick
 
     private void clearButtonClick(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearButtonClick
